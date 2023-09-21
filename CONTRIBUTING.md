@@ -1,12 +1,12 @@
 # Contributor's Guide: Get Involved
 
-Thank you for considering becoming a contributor to our project on GitHub. We hope this is a bug-free quickstart guide, but in case you found any issues or want to improve this project in any way we are more than happy to receive your contributions.
+Thank you for considering becoming a contributor to our project on GitHub. We hope this is a bug-free quickstart guide, but in case you find any issues or want to improve this project in any way we are more than happy to receive your contributions.
 
-This guide is designed to help you get started and provides good insights on how to make an impact on this quickstart. We look forward for your contributions!
+This guide is designed to help you get started and provides good insights on how to make an impact on this quickstart. We look forward to your contributions!
 
 # How to contribute
 
-All of our quickstarts guides are meant to be simple and concise, yet they must cover basic and advanced deployment scenarios. These guides must assume that for the basic deployment scenario the reader will be provided with all the requirements and necessary commands for the simplest deployment. However, for the advanced scenarios it is expected that the reader will have familiarity with the tooling and requirements, thus requiring only the information necessary to use our templates to produce the desired deployment configuration.
+All of our quickstart guides are meant to be simple and concise, yet they must cover basic and advanced deployment scenarios. These guides must assume that for the basic deployment scenario the reader will be provided with all the requirements and necessary commands for the simplest deployment. However, for the advanced scenarios it is expected that the reader will have familiarity with the tooling and requirements, thus requiring only the information necessary to use our templates to produce the desired deployment configuration.
 
 If you need further guidance, you can find our team on our mailing list:
 
@@ -18,7 +18,7 @@ We expect that all of the contributors of this project follow our [code of condu
 
 If you find any typos, broken links or other types of simple issues, we encourage you to open a Pull Request (PR) directly with the proposed fix, adding at least some context to the description. For more complex issues, however, we kindly ask you to analyze the list of open issues and PRs to avoid you from creating duplicates or working on something that is already assigned to someone else.
 
-Both of our templates for `Pull Requests` or `Issues` will provide the basic structure that you should use to better explain the issue or articulate your ideas in a format that the project's team is used to follow.
+Both of our templates for `Pull Requests` or `Issues` will provide the basic structure that you should use to better explain the issue or articulate your ideas in a format that the project's team can follow.
 
 ## Coding conventions
 

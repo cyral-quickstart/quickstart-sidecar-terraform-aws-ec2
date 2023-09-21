@@ -8,7 +8,7 @@ A quick start to deploy a sidecar to AWS EC2 using Terraform!
 
 ## Deployment
 
-The elements shown in the [architecture diagram](#architecture) are deployed by the [Cyral Sidecar module for AWS EC2](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest). The module requires existing VPC and subnets in order to create the necessary components for the sidecar to run. In a high-level, these are the resources deployed:
+The elements shown in the architecture diagram above are deployed by the [Cyral Sidecar module for AWS EC2](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest). The module requires existing VPC and subnets in order to create the necessary components for the sidecar to run. In a high-level, these are the resources deployed:
 
 * EC2
     * Auto scaling group (responsible for managing EC2 instances and EBS volumes)
