@@ -1,44 +1,43 @@
-Taken from https://github.com/cezaraugusto/github-template-guidelines/blob/master/.github/CONTRIBUTING.md - needs updating
+# Contributor's Guide: Get Involved
 
+Thank you for considering becoming a contributor to our project on GitHub. We hope this is a bug-free quickstart guide, but in case you find any issues or want to improve this project in any way we are more than happy to receive your contributions.
 
-## Before getting started
-
-> On the first paragraph, take some lines to thank your future contributors. It motivates people and makes you more human.
+This guide is designed to help you get started and provides good insights on how to make an impact on this quickstart. We look forward to your contributions!
 
 # How to contribute
 
-> Expose your project guidelines about how to contribute to it. Offer resources that people could use to discuss changes they wish to make, ask questions and talk about how they could help (and what needs their help).
+All of our quickstart guides are meant to be simple and concise, yet they must cover basic and advanced deployment scenarios. These guides must assume that for the basic deployment scenario the reader will be provided with all the requirements and necessary commands for the simplest deployment. However, for the advanced scenarios it is expected that the reader will have familiarity with the tooling and requirements, thus requiring only the information necessary to use our templates to produce the desired deployment configuration.
 
-If you need further guidance, you can find our team on the following:
+If you need further guidance, you can find our team on our mailing list:
 
-* IRC channel
-* Skype
-* Mailing list
-* Some Project Management tool.
+* `quickstart at cyral dot com`
 
-> **ProTip:** Now this is a good time to remind people to follow some rules and to be polite while contributing:
-
-Please note we have a [code of conduct](#code-of-conduct), please follow it in all your interactions with the project.
+We expect that all of the contributors of this project follow our [code of conduct](#code-of-conduct).
 
 ## Getting started
 
-> Here you should address guidelines about future functionalities, milestone labels, bugs and unlisted features, issued assignments, etc. Since now we have an `Issue` and a `Pull Request` template, you can reference them directly:
+If you find any typos, broken links or other types of simple issues, we encourage you to open a Pull Request (PR) directly with the proposed fix, adding at least some context to the description. For more complex issues, however, we kindly ask you to analyze the list of open issues and PRs to avoid you from creating duplicates or working on something that is already assigned to someone else.
 
-For further guidance about getting started, please refer to the related links:
-
-* [Pull Request Guidelines](PULL_REQUEST_TEMPLATE.md)
-* [Issues Guidelines](ISSUE_TEMPLATE.md)
-
-> **ProTip:** It's important people know the rules for contributing in the project. It's irritating for people trying to help when they are pushed back because they didn't follow some process that they didn't know existed. This file is the place for these processes and it will lower the barrier to entry for contribution.
+Both of our templates for `Pull Requests` or `Issues` will provide the basic structure that you should use to better explain the issue or articulate your ideas in a format that the project's team can follow.
 
 ## Coding conventions
 
-> Code should be optimized for readability. Attach some custom style guide or reference some. i.e.:
-
-In order to sanitize coding standards, please follow [this style guide](https://github.com/airbnb/javascript).
+1. Use descriptive and concise variable names.
+1. Use the `description` properties, if supported, to describe code elements.
+1. Include comments to explain complex configurations or unusual decisions.
+1. Maintain an up-to-date `README.md`` that provides usage instructions, input variables, and expected outputs.
+1. For Terraform code, all declarations (`variable`, `local`, `data source names`, `resource names`, `output`, etc) must be in lowercase with words separated by underscores (e.g., `some_variable_name`).
+1. For CloudFormation code, all declarations (`parameters`, `conditions`, `resource`, etc) must use `CamelCase`.
+1. For Helm code, follow the [chart best practices](https://helm.sh/docs/chart_best_practices/).
 
 ## Code of Conduct
 
-> This section should explicitly state that we will not discriminate against people on any grounds other than their code contributions, and make clear that behaviour that would be harmful to other people that may wish to contribute is not acceptable. This gives clear authority to remove people who are causing problems, and also sets a clear tone of inclusion.
+We believe in fostering a welcoming and inclusive environment for all contributors. Please adhere to the following principles when participating in our project:
 
-> **ProTip:** You can find more about  [Contributor Covenant](http://contributor-covenant.org) or as a seperate `code_of_conduct` file. [Good sample](http://contributor-covenant.org/version/1/4/).
+1. *Respect for All:* We value individuals, thus we respect them regardless of the collective group they belong to. Discrimination, harassment, or any form of disrespectful behaviour will not be tolerated.
+
+1. *Ideas Over Individuals:* We discuss ideas, not people. Personal attacks or ad hominem fallacies are strictly prohibited in all discussions. Constructive critique is encouraged.
+
+1. *Open Dialogue:* We value diverse perspectives and welcome all ideas for consideration. However, the administration team reserves the right to evaluate and make decisions in the best interest of the project's future.
+
+Remember, our goal is to create a collaborative and productive environment where everyone can contribute positively. Let's work together to achieve this.
