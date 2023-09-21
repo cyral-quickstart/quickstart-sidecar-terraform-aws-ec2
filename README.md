@@ -35,25 +35,14 @@ See the Terraform module's requirements in file [versions.tf](https://github.com
 
 #### Quickstart
 
-The quickstart example below will create the simplest configuration possible on your AWS account
-and deploy a single sidecar instance behind the load balancer. As this is just a quickstart
-to help you understand basic concepts, it deploys a public sidecar instance with an
-internet-facing load balancer.
-
-Deploying a test sidecar in a public configuration is the easiest way to have all the components
-in place and understand the basic concepts of our product as a public sidecar will easily
-communicate with the SaaS control plane.
-
-In case the databases you are protecting with the Cyral sidecar also live on AWS, make sure to
-add the sidecar security group (see output parameter `aws_security_group_id`) to the list of
-allowed inbound rules in the databases' security groups. If the databases do not live on AWS,
-analyze what is the proper networking configuration to allow connectivity from the EC2
-instances to the protected databases.
-
-How to use:
-
 * Save the code below in a `.tf` file (ex `sidecar.tf`) in a new folder.
-* Open a command line terminal in this new folder.
+    * Fill the parameters `sidecar_id`, `control_plane`, `client_id` and 
+    `client_secret` with the information from the `Cyral Templates` option
+    in the `Deployment` tab of your sidecar details.
+    * Fill the parameters `vpc_id` and `subnets` with an existing VPC and
+    subnet that can connect to the database you plan to protect with this
+    sidecar.
+* Open a command line terminal in the new folder.
 * Configure the AWS CLI credentials or provide them through environment variables.
 * Run `terraform init` followed by `terraform apply`.
 
@@ -102,21 +91,14 @@ module "cyral_sidecar" {
 }
 ```
 
-#### Production Starting Point
+The quickstart example above will create the simplest configuration possible on your AWS account
+and deploy a single sidecar instance behind the load balancer. As this is just a quickstart
+to help you understand basic concepts, it deploys a public sidecar instance with an
+internet-facing load balancer.
 
-The example below will create a production-grade configuration and assumes you understand
-the basic concepts of a Cyral sidecar.
-
-For a production configuration, we recommend that you provide multiple subnets in different
-availability zones and properly assess the dimensions and number of EC2 instances required
-for your production workload.
-
-In order to properly secure your sidecar, define appropriate inbound CIDRs using variables
-`ssh_inbound_cidr`, `db_inbound_cidr` and `monitoring_inbound_cidr` or define inbound
-rules using variables `ssh_inbound_security_group` and `db_inbound_security_group`. Beware
-that defining CIDR and security group rules at the same time is not allowed. See the
-variables documentation in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest)
-for more information.
+Deploying a test sidecar in a public configuration is the easiest way to have all the components
+in place and understand the basic concepts of our product as a public sidecar will easily
+communicate with the SaaS control plane.
 
 In case the databases you are protecting with the Cyral sidecar also live on AWS, make sure to
 add the sidecar security group (see output parameter `aws_security_group_id`) to the list of
@@ -124,9 +106,13 @@ allowed inbound rules in the databases' security groups. If the databases do not
 analyze what is the proper networking configuration to allow connectivity from the EC2
 instances to the protected databases.
 
-How to use:
+#### Production Starting Point
 
 * Save the code below in a `.tf` file (ex `sidecar.tf`) in a new folder.
+    * Fill the parameters `sidecar_id`, `control_plane`, `client_id` and 
+    `client_secret` with the information from the `Cyral Templates` option
+    in the `Deployment` tab of your sidecar details.
+    * Fill the remaining parameters as intructed in the comments.
 * Open a command line terminal in this new folder.
 * Configure the AWS CLI credentials or provide them through environment variables.
 * Run `terraform init` followed by `terraform apply`.
@@ -181,3 +167,23 @@ module "cyral_sidecar" {
   monitoring_inbound_cidr = ["0.0.0.0/0"]
 }
 ```
+
+The example above will create a production-grade configuration and assumes you understand
+the basic concepts of a Cyral sidecar.
+
+For a production configuration, we recommend that you provide multiple subnets in different
+availability zones and properly assess the dimensions and number of EC2 instances required
+for your production workload.
+
+In order to properly secure your sidecar, define appropriate inbound CIDRs using variables
+`ssh_inbound_cidr`, `db_inbound_cidr` and `monitoring_inbound_cidr` or define inbound
+rules using variables `ssh_inbound_security_group` and `db_inbound_security_group`. Beware
+that defining CIDR and security group rules at the same time is not allowed. See the
+variables documentation in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest)
+for more information.
+
+In case the databases you are protecting with the Cyral sidecar also live on AWS, make sure to
+add the sidecar security group (see output parameter `aws_security_group_id`) to the list of
+allowed inbound rules in the databases' security groups. If the databases do not live on AWS,
+analyze what is the proper networking configuration to allow connectivity from the EC2
+instances to the protected databases.
