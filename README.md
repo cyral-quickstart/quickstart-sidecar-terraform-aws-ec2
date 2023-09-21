@@ -15,7 +15,7 @@ The elements shown in the [architecture diagram](#architecture) are deployed by 
     * Network load balancer
     * Security group
 * Secrets Manager
-    * Sidecar credentials (optionally created)
+    * Sidecar credentials
     * Sidecar CA certificate
     * Sidecar self-signed certificate
 * IAM
@@ -34,6 +34,21 @@ See the Terraform module's requirements in file [versions.tf](https://github.com
 ### Examples
 
 #### Quickstart
+
+The quickstart example below will create the simplest configuration possible on your AWS account
+and deploy a single sidecar instance behind the load balancer. As this is just a quickstart
+to help you understand basic concepts, it deploys a public sidecar instance with an
+internet-facing load balancer.
+
+Deploying a test sidecar in a public configuration is the easiest way to have all the components
+in place and understand the basic concepts of our product as a public sidecar will easily
+communicate with the SaaS control plane.
+
+In case the databases you are protecting with the Cyral sidecar also live on AWS, make sure to
+add the sidecar security group (see output parameter `aws_security_group_id`) to the list of
+allowed inbound rules in the databases' security groups. If the databases do not live on AWS,
+analyze what is the proper networking configuration to allow connectivity from the EC2
+instances to the protected databases.
 
 ```hcl
 provider "aws" {
@@ -58,11 +73,12 @@ module "cyral_sidecar" {
 
   #############################################################
   #                       DANGER ZONE
-  # The following parameters will expose your sidecar on the
+  # The following parameters will expose your sidecar to the
   # internet. This is a quick set up to test with databases
-  # with dummy data. Never use this configuration if you are
-  # binding your sidecar to a database containing any data you
-  # would not want to expose on the internet.
+  # containing dummy data. Never use this configuration if you
+  # are binding your sidecar to a database that contains any
+  # production/real data unless you understand all the
+  # implications and risks involved.
 
   # Associate a public IP address to the EC2 instances
   associate_public_ip_address = true
@@ -80,6 +96,26 @@ module "cyral_sidecar" {
 ```
 
 #### Production Starting Point
+
+The example below will create a production-grade configuration and assumes you understand
+the basic concepts of a Cyral sidecar.
+
+For a production configuration, we recommend that you provide multiple subnets in different
+availability zones and properly assess the dimensions and number of EC2 instances required
+for your production workload.
+
+In order to properly secure your sidecar, define appropriate inbound CIDRs using variables
+`ssh_inbound_cidr`, `db_inbound_cidr` and `monitoring_inbound_cidr` or define inbound
+rules using variables `ssh_inbound_security_group` and `db_inbound_security_group`. Beware
+that defining CIDR and security group rules at the same time is not allowed. See the
+variables documentation in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest)
+for more information.
+
+In case the databases you are protecting with the Cyral sidecar also live on AWS, make sure to
+add the sidecar security group (see output parameter `aws_security_group_id`) to the list of
+allowed inbound rules in the databases' security groups. If the databases do not live on AWS,
+analyze what is the proper networking configuration to allow connectivity from the EC2
+instances to the protected databases.
 
 ```hcl
 provider "aws" {
@@ -125,7 +161,7 @@ module "cyral_sidecar" {
 
   # Restrict the inbound to SSH into the EC2 instances
   ssh_inbound_cidr        = ["0.0.0.0/0"]
-  # Restrict the inbout to ports defined in `sidecar_ports`
+  # Restrict the inbound to ports defined in `sidecar_ports`
   db_inbound_cidr         = ["0.0.0.0/0"]
   # Restrict the inbound to monitor the EC2 instances (port 9000)
   monitoring_inbound_cidr = ["0.0.0.0/0"]
