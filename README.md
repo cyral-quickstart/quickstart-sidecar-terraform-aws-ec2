@@ -50,6 +50,13 @@ allowed inbound rules in the databases' security groups. If the databases do not
 analyze what is the proper networking configuration to allow connectivity from the EC2
 instances to the protected databases.
 
+How to use:
+
+* Save the code below in a `.tf` file (ex `sidecar.tf`) in a new folder.
+* Open a command line terminal in this new folder.
+* Configure the AWS CLI credentials or provide them through environment variables.
+* Run `terraform init` followed by `terraform apply`.
+
 ```hcl
 provider "aws" {
   # Define the target AWS region
@@ -116,6 +123,13 @@ add the sidecar security group (see output parameter `aws_security_group_id`) to
 allowed inbound rules in the databases' security groups. If the databases do not live on AWS,
 analyze what is the proper networking configuration to allow connectivity from the EC2
 instances to the protected databases.
+
+How to use:
+
+* Save the code below in a `.tf` file (ex `sidecar.tf`) in a new folder.
+* Open a command line terminal in this new folder.
+* Configure the AWS CLI credentials or provide them through environment variables.
+* Run `terraform init` followed by `terraform apply`.
 
 ```hcl
 provider "aws" {
