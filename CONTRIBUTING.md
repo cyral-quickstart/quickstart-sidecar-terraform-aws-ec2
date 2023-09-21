@@ -10,7 +10,7 @@ All of our quickstart guides are meant to be simple and concise, yet they must c
 
 If you need further guidance, you can find our team on our mailing list:
 
-* `quickstarts at cyral dot com`
+* `quickstart at cyral dot com`
 
 We expect that all of the contributors of this project follow our [code of conduct](#code-of-conduct).
 
