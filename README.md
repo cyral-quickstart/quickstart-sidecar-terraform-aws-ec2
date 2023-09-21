@@ -187,3 +187,7 @@ add the sidecar security group (see output parameter `aws_security_group_id`) to
 allowed inbound rules in the databases' security groups. If the databases do not live on AWS,
 analyze what is the proper networking configuration to allow connectivity from the EC2
 instances to the protected databases.
+
+### Parameters
+
+See the full list of parameters in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest).

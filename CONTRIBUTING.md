@@ -22,13 +22,13 @@ Both of our templates for `Pull Requests` or `Issues` will provide the basic str
 
 ## Coding conventions
 
-### Terraform
-1. Use `snake_case` for all variable declarations (`variable`, `local`, `data source names`, `resource names`, etc).
-2. Use `terraform fmt` to lint your code.
-
-### CloudFormation
-1. Use `CamelCase` for all declarations.
-2. Use `cfn-lint` to lint your code. 
+1. Use descriptive and concise variable names.
+1. Use the `description` properties, if supported, to describe code elements.
+1. Include comments to explain complex configurations or unusual decisions.
+1. Maintain an up-to-date `README.md`` that provides usage instructions, input variables, and expected outputs.
+1. For Terraform code, all declarations (`variable`, `local`, `data source names`, `resource names`, `output`, etc) must be in lowercase with words separated by underscores (e.g., `some_variable_name`).
+1. For CloudFormation code, all declarations (`parameters`, `conditions`, `resource`, etc) must use `CamelCase`.
+1. For Helm code, follow the [chart best practices](https://helm.sh/docs/chart_best_practices/).
 
 ## Code of Conduct
 
