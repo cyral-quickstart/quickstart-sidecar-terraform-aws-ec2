@@ -191,3 +191,9 @@ instances to the protected databases.
 ### Parameters
 
 See the full list of parameters in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest).
+
+### Advanced
+
+Advanced deployment options are available for the following topics:
+
+* [Certificates (TLS connectivity)](./docs/certificates.md)
