@@ -77,5 +77,6 @@ Where `{myCertBase64}` is your custom certificate, encoded in base64, and
 `{myPrivateKeyBase64}` is your private key, encoded in base64. Note that the
 base64 encoding is an extra encoding over the PEM-encoded values.
 
-If in doubt about the difference between a TLS and a CA certificate, please see
-[Sidecar certificate types](https://cyral.com/docs/sidecars/certificates/overview#sidecar-certificate-types).
+The choice between providing a `tls`, a `ca` secret or *both* will depend on the repositories
+used by your sidecar. See the certificate type used by each repository in the 
+[sidecar certificates](https://cyral.com/docs/sidecars/certificates/overview#sidecar-certificate-types) page.
