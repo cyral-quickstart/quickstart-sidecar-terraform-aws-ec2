@@ -17,12 +17,8 @@ that the following requirements are met by your private key / certificate pair:
 - Both the private key and the certificate **must** be encoded in the **UTF-8**
   charset.
 
-  :::warning
-  
-   **Windows** commonly uses UTF-16 little-endian encoding. A UTF-16 certificate
-   or private key will **not** work in the sidecar.
-   
-  :::
+      **WARNING:** *Windows* commonly uses UTF-16 little-endian encoding. A UTF-16 certificate
+         or private key will *not* work in the sidecar.
 
 - The certificate must follow the **X.509** format.
 
