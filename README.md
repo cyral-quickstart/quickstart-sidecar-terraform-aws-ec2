@@ -194,6 +194,6 @@ See the full list of parameters in the [module's documentation page](https://reg
 
 ### Advanced
 
-Advanced deployment options are available for the following topics:
+Instructions for advanced deployment configurations are available for the following topics:
 
-* [Certificates (TLS connectivity)](./docs/certificates.md)
+* [Certificates for TLS connectivity](./docs/certificates.md)
