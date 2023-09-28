@@ -1,6 +1,6 @@
 # Reading metrics from Terraform AWS EC2 sidecars
 
-**NOTE:** You can look at all the metrics definitions and what they mean on our [metrics reference page](sidecars/monitoring/metrics/overview.mdx)
+**NOTE:** You can look at all the metrics definitions and what they mean on our [metrics reference page](https://cyral.com/docs/sidecars/monitoring/metrics)
 
 To configure metrics exposure, you can use the parameter `monitoring_inbound_cidr`
 to allow CIDR ranges to make requests to the metrics port (`9000` by default).
