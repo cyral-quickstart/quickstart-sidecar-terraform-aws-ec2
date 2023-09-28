@@ -1,8 +1,3 @@
----
-sidebar_label: Terraform
-description: How to read Terraform sidecar metrics
----
-
 # Reading metrics from Terraform AWS EC2 sidecars
 
 **NOTE:** You can look at all the metrics definitions and what they mean on our [metrics reference page](sidecars/monitoring/metrics/overview.mdx)
