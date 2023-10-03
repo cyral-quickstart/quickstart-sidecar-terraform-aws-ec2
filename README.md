@@ -2,26 +2,11 @@
 
 A quick start to deploy a sidecar to AWS EC2 using Terraform!
 
-## Architecture
-
-![Deployment architecture](images/aws_architecture.png)
+This quick start guide uses our [Terraform module for AWS EC2](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest).
+The source code for this module is available in the public GitHub repository
+[terraform-aws-sidecar-ec2](https://github.com/cyralinc/terraform-aws-sidecar-ec2).
 
 ## Deployment
-
-The elements shown in the architecture diagram above are deployed by the [Cyral Sidecar module for AWS EC2](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest). The module requires existing VPC and subnets in order to create the necessary components for the sidecar to run. In a high-level, these are the resources deployed:
-
-* EC2
-    * Auto scaling group (responsible for managing EC2 instances and EBS volumes)
-    * Network load balancer
-    * Security group
-* Secrets Manager
-    * Sidecar credentials
-    * Sidecar CA certificate
-    * Sidecar self-signed certificate
-* IAM
-    * Sidecar role
-* Cloudwatch
-    * Log group (optionally created)
 
 ### Requirements
 
@@ -33,7 +18,7 @@ See the Terraform module's requirements in file [versions.tf](https://github.com
 
 ### Examples
 
-#### Quickstart
+#### Quick Start
 
 * Save the code below in a `.tf` file (ex `sidecar.tf`) in a new folder.
     * Fill the parameters `sidecar_id`, `control_plane`, `client_id` and 
@@ -91,8 +76,8 @@ module "cyral_sidecar" {
 }
 ```
 
-The quickstart example above will create the simplest configuration possible on your AWS account
-and deploy a single sidecar instance behind the load balancer. As this is just a quickstart
+The quick start example above will create the simplest configuration possible on your AWS account
+and deploy a single sidecar instance behind the load balancer. As this is just an example
 to help you understand basic concepts, it deploys a public sidecar instance with an
 internet-facing load balancer.
 
@@ -179,7 +164,7 @@ In order to properly secure your sidecar, define appropriate inbound CIDRs using
 `ssh_inbound_cidr`, `db_inbound_cidr` and `monitoring_inbound_cidr` or define inbound
 rules using variables `ssh_inbound_security_group` and `db_inbound_security_group`. Beware
 that defining CIDR and security group rules at the same time is not allowed. See the
-variables documentation in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest)
+input variables documentation in the [module's input section](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest?tab=inputs)
 for more information.
 
 In case the databases you are protecting with the Cyral sidecar also live on AWS, make sure to
@@ -190,11 +175,22 @@ instances to the protected databases.
 
 ### Parameters
 
-See the full list of parameters in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest).
+See the full list of parameters in the [module's input section](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest?tab=inputs).
+
+### Upgrade
+
+This quick start supports [1-click upgrade](https://cyral.com/docs/sidecars/manage/upgrade#1-click-upgrade).
+
+To enable the 1-click upgrade feature, leave the variable `sidecar_version` empty and upgrade
+the sidecar from Cyral control plane.
+
+If you prefer to block upgrades from the Cyral control plane and use a **static version**, assign
+the desired sidecar version to `sidecar_version`. To upgrade your sidecar, update this parameter
+with the target version and upgrade the CloudFormation stack.
+
+Learn more in the [sidecar upgrade procedures](https://cyral.com/docs/sidecars/manage/upgrade/) page.
 
 ### Advanced
 
-Instructions for advanced deployment configurations are available for the following topics:
-
-* [Sidecar certificates](./docs/certificates.md)
-* [Sidecar instance metrics](./docs/metrics.md)
+Instructions for advanced deployment configurations are available
+in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest#advanced).
