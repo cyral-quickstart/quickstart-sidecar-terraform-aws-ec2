@@ -8,6 +8,10 @@ The source code for this module is available in the public GitHub repository
 
 ## Deployment
 
+### Architecture
+
+![Deployment architecture](https://raw.githubusercontent.com/cyralinc/terraform-aws-sidecar-ec2/main/images/aws_architecture.png)
+
 ### Requirements
 
 * Make sure you have access to your AWS environment with an account that has sufficient permissions to deploy the sidecar. The minimum permissions must allow for the creation of the elements listed previously. We recommend Administrator permissions (`AdministratorAccess` policy) as the module creates an IAM role.
