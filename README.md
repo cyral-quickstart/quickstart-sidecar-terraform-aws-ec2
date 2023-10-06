@@ -8,6 +8,10 @@ The source code for this module is available in the public GitHub repository
 
 ## Deployment
 
+### Architecture
+
+![Deployment architecture](https://raw.githubusercontent.com/cyralinc/terraform-aws-sidecar-ec2/main/images/aws_architecture.png)
+
 ### Requirements
 
 * Make sure you have access to your AWS environment with an account that has sufficient permissions to deploy the sidecar. The minimum permissions must allow for the creation of the elements listed previously. We recommend Administrator permissions (`AdministratorAccess` policy) as the module creates an IAM role.
@@ -175,22 +179,16 @@ instances to the protected databases.
 
 ### Parameters
 
-See the full list of parameters in the [module's input section](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest?tab=inputs).
+See the full list of parameters in the [module's docs](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest?tab=inputs).
 
 ### Upgrade
 
 This quick start supports [1-click upgrade](https://cyral.com/docs/sidecars/manage/upgrade#1-click-upgrade).
 
-To enable the 1-click upgrade feature, leave the variable `sidecar_version` empty and upgrade
-the sidecar from Cyral control plane.
-
-If you prefer to block upgrades from the Cyral control plane and use a **static version**, assign
-the desired sidecar version to `sidecar_version`. To upgrade your sidecar, update this parameter
-with the target version and upgrade the CloudFormation stack.
-
-Learn more in the [sidecar upgrade procedures](https://cyral.com/docs/sidecars/manage/upgrade/) page.
+Instructions for sidecar upgrade are available
+in the [module's docs](https://github.com/cyralinc/terraform-aws-sidecar-ec2#upgrade).
 
 ### Advanced
 
 Instructions for advanced deployment configurations are available
-in the [module's documentation page](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest#advanced).
+in the [module's docs](https://github.com/cyralinc/terraform-aws-sidecar-ec2#advanced).
