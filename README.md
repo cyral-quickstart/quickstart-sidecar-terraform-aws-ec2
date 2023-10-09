@@ -6,6 +6,8 @@ This quick start guide uses our [Terraform module for AWS EC2](https://registry.
 The source code for this module is available in the public GitHub repository
 [terraform-aws-sidecar-ec2](https://github.com/cyralinc/terraform-aws-sidecar-ec2).
 
+---
+
 ## Deployment
 
 ### Architecture
@@ -28,9 +30,10 @@ See the Terraform module's requirements in file [versions.tf](https://github.com
     * Fill the parameters `sidecar_id`, `control_plane`, `client_id` and 
     `client_secret` with the information from the `Cyral Templates` option
     in the `Deployment` tab of your sidecar details.
-    * Fill the parameters `vpc_id` and `subnets` with an existing VPC and
-    subnet that can connect to the database you plan to protect with this
-    sidecar.
+    * Fill the parameters `vpc_id` and `subnets` with an existing VPC and subnets that allows 
+    network connectivity to the Cyral control plane (outbound HTTPS and gRPC traffic using port `443`)
+    and to the database you plan to protect with this sidecar.
+
 * Open a command line terminal in the new folder.
 * Configure the AWS CLI credentials or provide them through environment variables.
 * Run `terraform init` followed by `terraform apply`.
@@ -101,6 +104,9 @@ instances to the protected databases.
     * Fill the parameters `sidecar_id`, `control_plane`, `client_id` and 
     `client_secret` with the information from the `Cyral Templates` option
     in the `Deployment` tab of your sidecar details.
+    * Fill the parameters `vpc_id` and `subnets` with an existing VPC and subnets that allows 
+    network connectivity to the Cyral control plane (outbound HTTPS and gRPC traffic using port `443`)
+    and to the database you plan to protect with this sidecar.
     * Fill the remaining parameters as intructed in the comments.
 * Open a command line terminal in this new folder.
 * Configure the AWS CLI credentials or provide them through environment variables.
@@ -181,14 +187,18 @@ instances to the protected databases.
 
 See the full list of parameters in the [module's docs](https://registry.terraform.io/modules/cyralinc/sidecar-ec2/aws/latest?tab=inputs).
 
-### Upgrade
+---
+
+## Upgrade
 
 This quick start supports [1-click upgrade](https://cyral.com/docs/sidecars/manage/upgrade#1-click-upgrade).
 
 Instructions for sidecar upgrade are available
 in the [module's docs](https://github.com/cyralinc/terraform-aws-sidecar-ec2#upgrade).
 
-### Advanced
+---
 
-Instructions for advanced deployment configurations are available
+## Advanced
+
+Instructions for advanced configurations are available
 in the [module's docs](https://github.com/cyralinc/terraform-aws-sidecar-ec2#advanced).
