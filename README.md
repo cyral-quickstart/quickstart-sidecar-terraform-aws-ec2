@@ -30,9 +30,10 @@ See the Terraform module's requirements in file [versions.tf](https://github.com
     * Fill the parameters `sidecar_id`, `control_plane`, `client_id` and 
     `client_secret` with the information from the `Cyral Templates` option
     in the `Deployment` tab of your sidecar details.
-    * Fill the parameters `vpc_id` and `subnets` with an existing VPC and
-    subnet that can connect to the database you plan to protect with this
-    sidecar.
+    * Fill the parameters `vpc_id` and `subnets` with an existing VPC and subnets that allows 
+    network connectivity to the Cyral control plane (outbound HTTPS and gRPC traffic using port `443`)
+    and to the database you plan to protect with this sidecar.
+
 * Open a command line terminal in the new folder.
 * Configure the AWS CLI credentials or provide them through environment variables.
 * Run `terraform init` followed by `terraform apply`.
@@ -103,6 +104,9 @@ instances to the protected databases.
     * Fill the parameters `sidecar_id`, `control_plane`, `client_id` and 
     `client_secret` with the information from the `Cyral Templates` option
     in the `Deployment` tab of your sidecar details.
+    * Fill the parameters `vpc_id` and `subnets` with an existing VPC and subnets that allows 
+    network connectivity to the Cyral control plane (outbound HTTPS and gRPC traffic using port `443`)
+    and to the database you plan to protect with this sidecar.
     * Fill the remaining parameters as intructed in the comments.
 * Open a command line terminal in this new folder.
 * Configure the AWS CLI credentials or provide them through environment variables.
