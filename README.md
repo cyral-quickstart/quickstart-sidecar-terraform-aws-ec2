@@ -53,10 +53,10 @@ module "cyral_sidecar" {
   client_id     = ""
   client_secret = ""
 
-  # The ports that the sidecar will allow for incoming
-  # connections. The set of ports below includes the default ports 
-  # for all of our currently supported repositories and considers
-  # MongoDB ports in the range from 27017 to 27019.
+  # The ports that the sidecar will allow for incoming connections.
+  # The set of ports below includes the default ports for all of
+  # our currently supported repositories and considers MongoDB
+  # ports in the range from 27017 to 27019.
   sidecar_ports = [
     443, 453, 1433, 1521, 3306, 5432, 5439, 9996, 9999,
     27017, 27018, 27019, 31010
@@ -138,10 +138,10 @@ module "cyral_sidecar" {
   # 1-click upgrade.
   sidecar_version = ""
 
-  # The ports that the sidecar will allow for incoming
-  # connections. The set of ports below includes the default ports 
-  # for all of our currently supported repositories and considers
-  # MongoDB ports in the range from 27017 to 27019.
+  # The ports that the sidecar will allow for incoming connections.
+  # The set of ports below includes the default ports for all of
+  # our currently supported repositories and considers MongoDB
+  # ports in the range from 27017 to 27019.
   sidecar_ports = [
     443, 453, 1433, 1521, 3306, 5432, 5439, 9996, 9999,
     27017, 27018, 27019, 31010
