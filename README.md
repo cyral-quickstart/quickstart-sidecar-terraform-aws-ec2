@@ -53,9 +53,14 @@ module "cyral_sidecar" {
   client_id     = ""
   client_secret = ""
 
-  # Considering MongoDB ports are from the range 27017 to 27019
-  sidecar_ports = [443, 3306, 5432, 27017, 27018, 27019]
-
+  # The range of ports that the sidecar will allow for incoming
+  # connections. The set of ports below includes the default ports 
+  # for all of our currently supported repositories and considers
+  # MongoDB ports in the range from 27017 to 27019.
+  sidecar_ports = [
+    443, 453, 1433, 1521, 3306, 5432, 5439, 9996, 9999,
+    27017, 27018, 27019, 31010
+  ]
   vpc_id  = "<vpc-id>"
   subnets = ["<subnet-id>"]
 
@@ -128,12 +133,19 @@ module "cyral_sidecar" {
   client_secret = ""
   
   # Assign the version that will be used by the sidecar instances.
-  # Remove the parameter should you prefer to perform upgrades 
-  # directly from the control plane.
+  # Remove the parameter or leave it empty should you prefer to
+  # perform upgrades directly from the control plane using the
+  # 1-click upgrade.
   sidecar_version = ""
 
-  # Considering MongoDB ports are from the range 27017 to 27019
-  sidecar_ports = [443, 3306, 5432, 27017, 27018, 27019]
+  # The range of ports that the sidecar will allow for incoming
+  # connections. The set of ports below includes the default ports 
+  # for all of our currently supported repositories and considers
+  # MongoDB ports in the range from 27017 to 27019.
+  sidecar_ports = [
+    443, 453, 1433, 1521, 3306, 5432, 5439, 9996, 9999,
+    27017, 27018, 27019, 31010
+  ]
 
   # Use 2 instances `m5.large`
   instance_type = "m5.large"
