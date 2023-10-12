@@ -138,7 +138,7 @@ module "cyral_sidecar" {
   # 1-click upgrade.
   sidecar_version = ""
 
-  # The range of ports that the sidecar will allow for incoming
+  # The ports that the sidecar will allow for incoming
   # connections. The set of ports below includes the default ports 
   # for all of our currently supported repositories and considers
   # MongoDB ports in the range from 27017 to 27019.
