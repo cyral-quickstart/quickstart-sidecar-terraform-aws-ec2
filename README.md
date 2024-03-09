@@ -212,7 +212,7 @@ To configure the sidecar to work on the S3 File Browser, set the following param
 If `sidecar_dns_hosted_zone_id` is omitted, the `sidecar_dns_name` won’t
 be automatically created, and the sidecar alias will need to be
 created after the deployment. See [Add a CNAME or A record for
-the sidecar](sidecars/manage/alias.mdx).
+the sidecar](https://cyral.com/docs/sidecars/manage/alias).
 
 For sidecars with support for S3, it is also a good practice to also
 attach the list of IAM Policies giving the sidecar all the required
