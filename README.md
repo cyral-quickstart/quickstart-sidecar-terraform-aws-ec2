@@ -73,10 +73,12 @@ module "cyral_sidecar" {
   # production/real data unless you understand all the
   # implications and risks involved.
 
-  # Associate a public IP address to the EC2 instances
+  # If you provided private subnets, set this to `false`
   associate_public_ip_address = true
-  # Create an internet-facing load balancer
-  load_balancer_scheme = "internet-facing"
+
+  # Do not deploy a load balancer, meaning it will also use
+  # a single EC2 instance for this sidecar
+  deploy_load_balancer = false
 
   # Unrestricted inbound to SSH into EC2 instances
   ssh_inbound_cidr        = ["0.0.0.0/0"]
@@ -89,13 +91,10 @@ module "cyral_sidecar" {
 ```
 
 The quick start example above will create the simplest configuration possible on your AWS account
-and deploy a single sidecar instance behind the load balancer. As this is just an example
-to help you understand basic concepts, it deploys a public sidecar instance with an
-internet-facing load balancer.
+and deploy a single sidecar instance without a load balancer.
 
-Deploying a test sidecar in a public configuration is the easiest way to have all the components
-in place and understand the basic concepts of our product as a public sidecar will easily
-communicate with the SaaS control plane.
+Deploying a test sidecar is the easiest way to have a sidecar up and running to
+understand the basic concepts of our product.
 
 In case the databases you are protecting with the Cyral sidecar also live on AWS, make sure to
 add the sidecar security group (see output parameter `aws_security_group_id`) to the list of
